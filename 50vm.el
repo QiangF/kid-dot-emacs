@@ -1,1 +1,0 @@
-;;;; use vm to view my mail
