@@ -56,6 +56,7 @@
   (c-set-style "stroustrup")
   (c-set-offset 'inline-open 0)
   (kid-set-brace-styles)
+  (kid-c-set-indent)
   (hs-minor-mode 1))
 
 (defun kid-modify-alist (list entry)
@@ -73,6 +74,11 @@
 	  (brace-list-close)
 	  (extern-lang-close after)
 	  (namespace-close after))))
+
+(defun kid-c-set-indent ()
+  (mapc (lambda (entry)
+	  (kid-modify-alist 'c-offsets-alist entry))
+	'((innamespace . [0]))))
 
 ;; 待整理，见 http://ann77.stu.cdut.edu.cn/EmacsAutoNewLineImpv.html
 ;; auto-newline 功能的改进
