@@ -30,7 +30,10 @@
 (add-hook 'html-mode-hook
 	  '(lambda ()
 	     (auto-fill-mode -1)
+	     (setq tab-width 2)
 	     (setq indent-tab-mode nil)))
+(add-to-list 'auto-mode-alist
+	     '("\\.rhtml$" . html-mode))
 
 (require 'ruby-mode)
 (require 'ruby-electric)
