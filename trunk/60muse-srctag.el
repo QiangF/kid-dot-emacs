@@ -30,8 +30,18 @@
     ("patch" . diff-mode)
     ("conf" . conf-mode)
     ("latex" . latex-mode)		; not the heavy AuCTeX's LaTeX-mode
-    ("skribe" . skribe-mode)
     ("makefile" . makefile-mode)))
+
+;; add a cool emacs box around the src div
+(defvar kid-muse-srctag-cool-border
+  "<div class=\"emacs-outer\"><div class=\"emacs-title-right\">
+<div class=\"emacs-title-left\">
+<div class=\"emacs-cont-left\">
+<div class=\"emacs-cont-right\">
+<div class=\"emacs-footer-right\">
+<div class=\"emacs-footer-left\">")
+(defvar kid-muse-srctag-cool-border-end
+  "</div></div></div></div></div></div></div>")
 
 ;; 新版本的 Muse 已经具有了处理 src tag 的功能，但是语法和我自己的这个
 ;; 有一些区别，为了保持向后兼容性，使用我自己的函数进行处理。
@@ -74,6 +84,7 @@
 	   (goto-char (point-min))
 	   (with-current-buffer htmlbuf
 	     (let ((fstruct (gethash 'default face-map)))
+	       (insert kid-muse-srctag-cool-border)
 	       (insert "<pre class=\"src\""
 		       (if kid-muse-srctag-css-output-styles
 			   (concat " style=\"background-color:"
@@ -142,6 +153,7 @@
 	   (kill-buffer htmlbuf)
 	   text)))
       (insert "</pre>")
+      (insert kid-muse-srctag-cool-border-end)
       (muse-publish-mark-read-only (point-min) (point-max))
       (goto-char (point-max)))))
 
