@@ -6,6 +6,7 @@
       '(("/programming/guile/.*c$" .    "gcc -Wall %f `guile-config link` -o %n")
 	("\\.c\\'"		.	"gcc -Wall %f -lm -o %n")
 	("\\.[Cc]+[Pp]*\\'"	.	"g++ -Wall %f -lm -o %n")
+	("\\.java$"             .       "javac %f")
 	(emacs-lisp-mode	.	(emacs-lisp-byte-compile))
 	(html-mode		.	(browse-url-of-buffer))
 	(html-helper-mode	.	(browse-url-of-buffer))
@@ -57,7 +58,9 @@
   (c-set-offset 'inline-open 0)
   (kid-set-brace-styles)
   (kid-c-set-indent)
-  (hs-minor-mode 1))
+  (hs-minor-mode 1)
+			      
+  )
 
 (defun kid-modify-alist (list entry)
   (let ((old-item (assoc (car entry) (symbol-value list))))
@@ -84,6 +87,7 @@
 ;; auto-newline 功能的改进
 (add-hook 'c-mode-hook 'my-c-mode-hook)
 (add-hook 'c++-mode-hook 'my-c-mode-hook)
+(add-hook 'java-mode-hook 'my-c-mode-hook)
 (defun my-c-mode-hook ()
   (interactive)
   (make-local-variable 'pre-command-hook)
@@ -102,5 +106,16 @@
           (if (and (boundp c-auto-newline) c-auto-newline)
               (progn
 		(delete-blank-lines)))))))
+
+;;; D programming language support
+;;; I currently put it here
+(autoload 'd-mode "d-mode" "Major mode for editing D code." t)
+(add-to-list 'auto-mode-alist '("\\.d[i]?\\'" . d-mode))
+;; compile error identification support for dmd
+(require 'compile)
+(add-to-list
+ 'compilation-error-regexp-alist
+ '("^\\([^ \n]+\\)(\\([0-9]+\\)): \\(?:error\\|.\\|warnin\\(g\\)\\|remar\\(k\\)\\)"
+   1 2 nil (3 . 4)))
 
 ;;;;;; 50c.el ends here
