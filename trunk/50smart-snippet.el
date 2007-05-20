@@ -56,4 +56,5 @@
 ;; your keyboard.
 (define-key c++-mode-map (kbd "TAB") 'kid-c-escape-pair)
 (define-key c++-mode-map (kbd "<tab>") 'c-indent-command)
-
+;; snippet.el use TAB, now we need to use <tab>
+(define-key snippet-map  (kbd "<tab>") 'snippet-next-field)
