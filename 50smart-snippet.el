@@ -14,8 +14,8 @@
 ;; those non-word snippet can't be triggered by abbrev expand, we
 ;; need to bind them explicitly to some key
 (smart-snippet-with-abbrev-table 'c++-mode-abbrev-table
-  ("{" "{$>\n$>$.\n}$>" 'bol?)
   ("{" "{$.}" '(not (c-in-literal)))
+  ("{" "{$>\n$>$.\n}$>" 'bol?)
   ;; if not in comment or other stuff(see `c-in-literal'), then
   ;; inser a pair of quote. if already in string, insert `\"'
   ("\"" "\"$.\"" '(not (c-in-literal)))	
