@@ -15,6 +15,7 @@
 ;; need to bind them explicitly to some key
 (smart-snippet-with-abbrev-table 'c++-mode-abbrev-table
   ("{" "{$>\n$>$.\n}$>" 'bol?)
+  ("{" "{$.}" '(not (c-in-literal)))
   ;; if not in comment or other stuff(see `c-in-literal'), then
   ;; inser a pair of quote. if already in string, insert `\"'
   ("\"" "\"$.\"" '(not (c-in-literal)))	
@@ -38,3 +39,21 @@
   ("[" "[")
   ("'" "'")
   )
+
+;; jump out from a pair(like quote, parenthesis, etc.)
+(defun kid-c-escape-pair ()
+  (interactive)
+  (let ((pair-regexp "[^])}\"'>]*[])}\"'>]"))
+    (if (looking-at pair-regexp)
+	(progn
+	  ;; be sure we can use C-u C-@ to jump back
+	  ;; if we goto the wrong place
+	  (push-mark) 
+	  (goto-char (match-end 0)))
+      (c-indent-command))))
+;; note TAB can be different to <tab> in X mode(not -nw mode).
+;; the formal is C-i while the latter is the real "Tab" key in
+;; your keyboard.
+(define-key c++-mode-map (kbd "TAB") 'kid-c-escape-pair)
+(define-key c++-mode-map (kbd "<tab>") 'c-indent-command)
+
