@@ -13,9 +13,9 @@
 (autoload 'ri (expand-file-name
 	       "~/emacs/extension/ri-ruby.el") nil t)
 
-;; (add-to-list 'load-path
-;; 	     "/home/kid/emacs/packages/emacs-rails")
-;; (require 'rails)
+(add-to-list 'load-path
+	     "/home/kid/emacs/packages/emacs-rails")
+(require 'rails)
 
 ;; (let ((pair (assoc "\\.rhtml$" auto-mode-alist)))
 ;;   (when pair

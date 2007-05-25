@@ -1,5 +1,5 @@
 ;;;; my common-lisp program
-(setq inferior-lisp-program "/usr/bin/clisp")
+(setq inferior-lisp-program "/usr/bin/sbcl")
 ;      lisp-indent-function 'common-lisp-indent-function)
 (setq slime-lisp-implementations
       '((sbcl ("sbcl") :coding-system utf-8-unix)
