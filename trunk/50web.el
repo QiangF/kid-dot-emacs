@@ -11,3 +11,11 @@
 (setq browse-url-browser-function
       '(("ebook/computer/lisp/book/HyperSpec/" . w3m-browse-url)
 	("." . browse-url-default-browser)))
+
+;; 编辑 HTML 的时候要用到 screen-lines.el
+(autoload 'screen-lines-mode "screen-lines"
+  "Toggle Screen Lines minor mode for the current buffer." t)
+(autoload 'turn-on-screen-lines-mode "screen-lines"
+  "Turn on Screen Lines minor mode for the current buffer." t)
+(autoload 'turn-off-screen-lines-mode "screen-lines"
+  "Turn off Screen Lines minor mode for the current buffer." t)
