@@ -64,3 +64,6 @@
 (define-key c++-mode-map (kbd "<tab>") 'c-indent-command)
 ;; snippet.el use TAB, now we need to use <tab>
 (define-key snippet-map  (kbd "<tab>") 'snippet-next-field)
+
+(define-key java-mode-map (kbd "<tab>") 'c-indent-command)
+(define-key java-mode-map (kbd "TAB") 'kid-c-escape-pair)
