@@ -92,3 +92,6 @@
 (defalias 'perl-mode 'cperl-mode)
 (setq cperl-hairy t)
 (setq cperl-auto-newline t)
+
+;; list recent opened file in File menu
+(recentf-mode 1)
