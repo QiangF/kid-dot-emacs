@@ -4,26 +4,23 @@
 (require 'smart-compile)
 (setq smart-compile-alist
       '(("/programming/guile/.*c$" .    "gcc -Wall %f `guile-config link` -o %n")
-	("\\.c\\'"		.	"gcc -Wall %f -lm -o %n")
-	("\\.[Cc]+[Pp]*\\'"	.	"g++ -Wall %f -lm -o %n")
-	("\\.java$"             .       "javac %f")
-	(emacs-lisp-mode	.	(emacs-lisp-byte-compile))
-	(html-mode		.	(browse-url-of-buffer))
-	(html-helper-mode	.	(browse-url-of-buffer))
-	("\\.skb$"              .       "skribe %f -o %n.html")
-	(haskell-mode           .       "ghc -o %n %f")
-	(asy-mode               .       (call-interactively 'asy-compile-view))
-	(muse-mode		.	(call-interactively 'muse-project-publish))))
+        ("\\.c\\'"              .       "gcc -Wall %f -lm -o %n")
+        ("\\.[Cc]+[Pp]*\\'"     .       "g++ -Wall %f -lm -o %n")
+        ("\\.java$"             .       "javac %f")
+        (emacs-lisp-mode        .       (emacs-lisp-byte-compile))
+        (html-mode              .       (browse-url-of-buffer))
+        (html-helper-mode       .       (browse-url-of-buffer))
+        ("\\.skb$"              .       "skribe %f -o %n.html")
+        (haskell-mode           .       "ghc -o %n %f")
+        (asy-mode               .       (call-interactively 'asy-compile-view))
+        (muse-mode              .       (call-interactively 'muse-project-publish))))
 (global-set-key (kbd "<f9>") 'smart-compile)
 
 ;; load gnu global
 (add-to-list 'load-path
-	     (expand-file-name "~/emacs/packages/global")
-	     t)
+             (expand-file-name "~/emacs/packages/global")
+             t)
 (autoload 'gtags-mode "gtags" "" t)
-
-;; 加载 psvn
-(require 'psvn)
 
 (defun my-c-common-mode ()
   (gtags-mode 1)
@@ -59,29 +56,29 @@
   (kid-set-brace-styles)
   (kid-c-set-indent)
   (hs-minor-mode 1)
-			      
+
   )
 
 (defun kid-modify-alist (list entry)
   (let ((old-item (assoc (car entry) (symbol-value list))))
     (if old-item
-	(setcdr old-item (cdr entry))
-	(add-to-list list entry))))
+        (setcdr old-item (cdr entry))
+        (add-to-list list entry))))
 (defun kid-set-brace-styles ()
   (mapc (lambda (entry)
-	  (kid-modify-alist 'c-hanging-braces-alist entry))
-	'((defun-close after)
-	  (class-close)
-	  (inline-close after)
-	  (block-close  after)
-	  (brace-list-close)
-	  (extern-lang-close after)
-	  (namespace-close after))))
+          (kid-modify-alist 'c-hanging-braces-alist entry))
+        '((defun-close after)
+          (class-close)
+          (inline-close after)
+          (block-close  after)
+          (brace-list-close)
+          (extern-lang-close after)
+          (namespace-close after))))
 
 (defun kid-c-set-indent ()
   (mapc (lambda (entry)
-	  (kid-modify-alist 'c-offsets-alist entry))
-	'((innamespace . [0]))))
+          (kid-modify-alist 'c-offsets-alist entry))
+        '((innamespace . [0]))))
 
 ;; 待整理，见 http://ann77.stu.cdut.edu.cn/EmacsAutoNewLineImpv.html
 ;; auto-newline 功能的改进
@@ -105,7 +102,7 @@
         (progn
           (if (and (boundp c-auto-newline) c-auto-newline)
               (progn
-		(delete-blank-lines)))))))
+                (delete-blank-lines)))))))
 
 ;;; D programming language support
 ;;; I currently put it here
