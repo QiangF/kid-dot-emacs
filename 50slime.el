@@ -3,8 +3,8 @@
 ;      lisp-indent-function 'common-lisp-indent-function)
 (setq slime-lisp-implementations
       '((sbcl ("sbcl") :coding-system utf-8-unix)
-	(clisp ("clisp") :coding-system utf-8-unix)))
-        
+        (clisp ("clisp") :coding-system utf-8-unix)))
+
 (add-to-list 'load-path (expand-file-name "~/emacs/packages/slime") t)
 (require 'slime)
 (add-hook 'lisp-mode-hook (lambda () (slime-mode t)))
@@ -12,7 +12,7 @@
 (slime-setup)
 
 ;; HyperSpec
-(setq common-lisp-hyperspec-root 
+(setq common-lisp-hyperspec-root
       "file:///home/kid/ebook/computer/lisp/book/HyperSpec/")
 
 (define-key lisp-mode-map

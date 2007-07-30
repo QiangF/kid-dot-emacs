@@ -8,7 +8,7 @@
 ;(tool-bar-mode -1)
 (menu-bar-mode 1)
 
-;(set-scroll-bar-mode 'left)
+(set-scroll-bar-mode 'left)
 ;(modify-frame-parameters nil '((scroll-bar-width . 6)))
 
 ;; 显示行号功能
@@ -55,10 +55,10 @@
 ;;                 '(comint-mode compilation-mode)))
 ;;       '("Process"))
 ;;      ((or (member (buffer-name)
-;; 		  '("*scratch*" "*Messages*"))
-;; 	  (memq major-mode
-;; 		'(help-mode apropos-mode Info-mode Man-mode
-;; 		  completion-list-mode)))
+;;                '("*scratch*" "*Messages*"))
+;;        (memq major-mode
+;;              '(help-mode apropos-mode Info-mode Man-mode
+;;                completion-list-mode)))
 ;;       '("Common"))
 ;;      ((eq major-mode 'dired-mode)
 ;;       '("Dired"))
@@ -70,13 +70,13 @@
 ;;               gnus-article-mode score-mode gnus-browse-killed-mode))
 ;;       '("Mail"))
 ;;      ((memq major-mode
-;; 	    '(c-mode c++-mode ruby-mode python-mode emacs-lisp-mode))
+;;          '(c-mode c++-mode ruby-mode python-mode emacs-lisp-mode))
 ;;       '("Develop"))
 ;;      ((memq major-mode
-;; 	    '(muse-mode LaTeX-mode org-mode text-mode))
+;;          '(muse-mode LaTeX-mode org-mode text-mode))
 ;;       '("Document"))
 ;;      (t
-;;       (list 
+;;       (list
 ;;        "default"  ;; no-grouping
 ;;        (if (and (stringp mode-name) (string-match "[^ ]" mode-name))
 ;;            mode-name
@@ -90,21 +90,21 @@
 
 ;; (setq window-system-default-frame-alist
 ;;       '(
-;; 	;; if frame created on x display
-;; 	(x
-;; 	 (tool-bar-lines . 0))))
+;;      ;; if frame created on x display
+;;      (x
+;;       (tool-bar-lines . 0))))
 
 ;; 光标的设置
-(blink-cursor-mode -1)			;不要让光标闪烁
-;(setq cursor-in-echo-area nil)		;在 echo area 显示光标
+(blink-cursor-mode -1)                  ;不要让光标闪烁
+;(setq cursor-in-echo-area nil)         ;在 echo area 显示光标
 
-;; (if (string-match "23" (emacs-version))
-;;     (progn
-;;       (set-fontset-font
-;;        "fontset-default" 'chinese-gbk
-;;        "-misc-simsun-medium-r-normal--0-0-0-0-p-0-gbk-0"
-;;        nil 'prepend)
-;;       (set-fontset-font
-;;        "fontset-default" 'big5
-;;        "-arphic-uming-medium-r-normal--14-140-100-100-m-140-big5-0"
-;;        nil 'perpend)))
+(if (string-match "23" (emacs-version))
+    (progn
+      (set-fontset-font
+       "fontset-default" 'chinese-gbk
+       "-misc-simsun-medium-r-normal--0-0-0-0-p-0-gbk-0"
+       nil 'prepend)
+      (set-fontset-font
+       "fontset-default" 'big5
+       "-arphic-uming-medium-r-normal--14-140-100-100-m-140-big5-0"
+       nil 'perpend)))
