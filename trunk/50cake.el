@@ -10,14 +10,14 @@
 (setq ido-enable-prefix nil)
 (setq ido-enable-case nil)
 ;; 如果使用 multi-tty 的 Emacs 的话打开这个功能是很方便的，因为后台的
-;; 一个不可见的 Emacs 占据了 *scratch* 这些 buffer 
+;; 一个不可见的 Emacs 占据了 *scratch* 这些 buffer
 (setq ido-default-file-method 'samewindow)
 (setq ido-default-buffer-method 'samewindow)
 (ido-mode t)
 ;; ido-subdir 是红颜色，特别是在黑色背景下不好看
 (custom-set-faces
  '(ido-subdir ((((class color) (background light)) (:foreground "Red"))
-	       (t (:foreground "Cyan")))))
+               (t (:foreground "Cyan")))))
 
 
 ;; 对配置文件进行加亮
@@ -42,23 +42,24 @@
 
 ;; hippie-expand
 (global-set-key (kbd "M-/") 'hippie-expand)
-(setq hippie-expand-try-functions-list 
-      '(try-expand-dabbrev		   ; 搜索当前 buffer
-	try-expand-dabbrev-visible	   ; 搜索当前可见窗口
-	try-expand-dabbrev-all-buffers	   ; 搜索所有 buffer
-	try-expand-dabbrev-from-kill       ; 从 kill-ring 中搜索
-	try-complete-file-name-partially   ; 文件名部分匹配
-	try-complete-file-name		   ; 文件名匹配
-	try-expand-all-abbrevs		   ; 匹配所有缩写词
-	try-expand-list			   ; 补全一个列表
-	try-expand-line			   ; 补全当前行
-	try-complete-lisp-symbol-partially ; 部分补全 elisp symbol
-	try-complete-lisp-symbol))	   ; 补全 lisp symbol
+(setq hippie-expand-try-functions-list
+      '(try-expand-dabbrev                 ; 搜索当前 buffer
+        try-expand-dabbrev-visible         ; 搜索当前可见窗口
+        try-expand-dabbrev-all-buffers     ; 搜索所有 buffer
+        try-expand-dabbrev-from-kill       ; 从 kill-ring 中搜索
+        try-complete-file-name-partially   ; 文件名部分匹配
+        try-complete-file-name             ; 文件名匹配
+        try-expand-all-abbrevs             ; 匹配所有缩写词
+        try-expand-list                    ; 补全一个列表
+        try-expand-line                    ; 补全当前行
+        try-complete-lisp-symbol-partially ; 部分补全 elisp symbol
+        try-complete-lisp-symbol))         ; 补全 lisp symbol
 
 ;; delete-region
 (delete-selection-mode 1)
 
 ;; wind-move 功能，使用 shift+方向键在各个 window 之间移动
+(require 'windmove)
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
 
@@ -94,4 +95,7 @@
 (setq cperl-auto-newline t)
 
 ;; list recent opened file in File menu
+(require 'recentf)
 (recentf-mode 1)
+(setq recentf-exclude
+      '("^/.*:.*"))
