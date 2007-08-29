@@ -50,3 +50,6 @@
             (cons '("FvwmApplet−" . fvwm-mode)
                   (cons  '("FvwmScript−" . fvwm-mode)
                          auto-mode-alist))))
+
+;; scroll one-line instead of half-screen
+(setq scroll-conservatively 10000)
