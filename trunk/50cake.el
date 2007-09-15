@@ -95,7 +95,7 @@
 (setq cperl-auto-newline t)
 
 ;; list recent opened file in File menu
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-exclude
-      '("^/.*:.*"))
+;; (require 'recentf)
+;; (recentf-mode 1)
+;; (setq recentf-exclude
+;;       '("^/.*:.*"))
