@@ -6,6 +6,7 @@
 (require 'cc-mode)
 (smart-snippet-with-abbrev-tables
  (c++-mode-abbrev-table
+  c-mode-abbrev-table
   java-mode-abbrev-table)
   ("if" "if ($${condition})\n{$>\n$>$.\n}$>" 'bol?)
   ("elsif" "else if ($${condition})\n{$>\n$>$.\n}$>" 'bol?)
@@ -21,6 +22,7 @@
 ;; need to bind them explicitly to some key
 (smart-snippet-with-abbrev-tables
  (c++-mode-abbrev-table
+  c-mode-abbrev-table
   java-mode-abbrev-table)
   ("{" "{$.}" '(not (c-in-literal)))
   ("{" "{$>\n$>$.\n}$>" 'bol?)
@@ -41,6 +43,7 @@
 
 (smart-snippet-with-keymaps
  ((c++-mode-map c++-mode-abbrev-table)
+  (c-mode-map c-mode-abbrev-table)
   (java-mode-map java-mode-abbrev-table))
   ("{" "{")
   ("\"" "\"")
@@ -71,3 +74,6 @@
 
 (define-key java-mode-map (kbd "<tab>") 'c-indent-command)
 (define-key java-mode-map (kbd "TAB") 'kid-c-escape-pair)
+
+(define-key c-mode-map (kbd "TAB") 'kid-c-escape-pair)
+(define-key c-mode-map (kbd "<tab>") 'c-indent-command)
