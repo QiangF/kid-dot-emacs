@@ -19,7 +19,7 @@
 (require 'avoid)
 
 ;; 使用 emacs server
-;(server-start)
+(server-start)
 
 ;; 加载 session
 ;; (require 'session)
@@ -27,3 +27,6 @@
 ;;        'session-initialize)
 ;(desktop-save-mode 1)
 ;(setq desktop-restore-eager 5)
+
+(setq Info-additional-directory-list
+      '("/usr/share/info/emacs-snapshot-unicode/"))
