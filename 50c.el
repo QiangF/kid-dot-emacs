@@ -7,6 +7,8 @@
         ("\\.c\\'"              .       "gcc -Wall %f -lm -o %n")
         ("\\.[Cc]+[Pp]*\\'"     .       "g++ -Wall %f -lm -o %n")
         ("\\.java$"             .       "javac %f")
+	("_spec\\.rb$"          .       "spec %f")
+	("\\.rb$"               .       "ruby %f")
         (emacs-lisp-mode        .       (emacs-lisp-byte-compile))
         (html-mode              .       (browse-url-of-buffer))
         (html-helper-mode       .       (browse-url-of-buffer))
@@ -15,6 +17,9 @@
         (asy-mode               .       (call-interactively 'asy-compile-view))
         (muse-mode              .       (call-interactively 'muse-project-publish))))
 (global-set-key (kbd "<f9>") 'smart-compile)
+
+;; keep scrolling in compilation result buffer
+(setq compilation-scroll-output t)
 
 ;; load gnu global
 (add-to-list 'load-path

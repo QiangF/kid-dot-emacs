@@ -15,8 +15,13 @@
   ("namespace" "namespace $${name} {\n$.\n} // namespace $${name}" 'bol?))
 
 (smart-snippet-with-abbrev-tables
- (c++-mode-abbrev-table)
- ("class" "class $${name}\n{$>\npublic:$>\n$>$.\n};$>" 'bol?))
+ (c++-mode-abbrev-table
+  c-mode-abbrev-table)
+ ("class" "class $${name}\n{$>\npublic:$>\n$>$.\n};$>" 'bol?)
+ ("main" "int main(int argc, char *argv[])\n{\n$>$.\n}\n" 'bol?)
+ ("defun" "/**\n$>* \\\\brief $${func} $${description}\n$>*/
+$>$${void} $${func}($$)\n{$>\n$>$.\n}$>" 'bol?)
+ ("p" "printf(\"$.\");" 'bol?))
 
 ;; those non-word snippet can't be triggered by abbrev expand, we
 ;; need to bind them explicitly to some key

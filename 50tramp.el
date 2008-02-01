@@ -1,15 +1,15 @@
 ;; 使用 TRAMP
-(add-to-list 'load-path
-             (expand-file-name "~/emacs/packages/tramp/lisp"))
-(require 'ange-ftp)
+;;; (add-to-list 'load-path
+;;;              (expand-file-name "~/emacs/packages/tramp/lisp"))
+;;; (require 'ange-ftp)
 (require 'tramp)
-(add-to-list 'tramp-default-method-alist
-             '("10.13.122.225" "" "ssh"))
-(add-to-list 'tramp-default-method-alist
-             '("kid" "" "sudo"))
-(add-to-list 'tramp-default-user-alist
-             '("" "10.13.122.225" "root"))
-(setq tramp-default-host "10.13.122.225")
+;;; (add-to-list 'tramp-default-method-alist
+;;;              '("10.13.122.225" "" "ssh"))
+;;; (add-to-list 'tramp-default-method-alist
+;;;              '("kid" "" "sudo"))
+;;; (add-to-list 'tramp-default-user-alist
+;;;              '("" "10.13.122.225" "root"))
+;;; (setq tramp-default-host "10.13.122.225")
 
 
 ;; 使用 TRAMP 把当前文件以 sudo 方式打开

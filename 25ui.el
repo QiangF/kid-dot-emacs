@@ -5,10 +5,10 @@
 (setq inhibit-startup-message t)
 
 ;; 关闭工具栏和菜单栏显示
-;(tool-bar-mode -1)
+(tool-bar-mode -1)
 (menu-bar-mode 1)
 
-(set-scroll-bar-mode 'left)
+;(set-scroll-bar-mode 'left)
 ;(modify-frame-parameters nil '((scroll-bar-width . 6)))
 
 ;; 显示行号功能
@@ -33,10 +33,14 @@
 (setq show-paren-delay 0.5)
 
 ;; 如果是在图形界面下就加载不同的颜色主题库
+(add-to-list 'load-path
+	     "~/emacs/packages/color-theme-6.6.0")
 (require 'color-theme)
-(if window-system
-   (color-theme-calm-forest)
- (color-theme-calm-forest))
+(require 'color-theme-arjen)
+(color-theme-arjen)
+;;; (if window-system
+;;;    (color-theme-calm-forest)
+;;;  (color-theme-calm-forest))
 
 ;; 加载 tabbar
 ;; (require 'tabbar)
@@ -98,13 +102,26 @@
 (blink-cursor-mode -1)                  ;不要让光标闪烁
 ;(setq cursor-in-echo-area nil)         ;在 echo area 显示光标
 
-(if (string-match "23" (emacs-version))
-    (progn
-      (set-fontset-font
-       "fontset-default" 'chinese-gbk
-       "-misc-simsun-medium-r-normal--0-0-0-0-p-0-gbk-0"
-       nil 'prepend)
-      (set-fontset-font
-       "fontset-default" 'big5
-       "-arphic-uming-medium-r-normal--14-140-100-100-m-140-big5-0"
-       nil 'perpend)))
+;;; (create-fontset-from-fontset-spec
+;;;   "-*-terminus-medium-r-normal--12-*-*-*-c-*-fontset-terminus")
+;;; (set-default-font "fontset-terminus")
+;;; (setq default-frame-alist
+;;;       (append '((font . "fontset-terminus"))
+;;;               default-frame-alist))
+;;; (set-fontset-font
+;;;  "fontset-terminus" 'han
+;;; ; "-*-simsun-medium-r-*-*-12-*-*-*-p-*-gb2312.1980-*"
+;;;  "-wenquanyi-wenquanyi bitmap song-medium-r-normal-12-120-75-75-p-119-gbk-0"
+;;;  nil 'prepend)
+
+
+;; (if (string-match "23" (emacs-version))
+;;     (progn
+;;       (set-fontset-font
+;;        "fontset-default" 'chinese-gbk
+;;        "-misc-simsun-medium-r-normal--0-0-0-0-p-0-gbk-0"
+;;        nil 'prepend)
+;;       (set-fontset-font
+;;        "fontset-default" 'big5
+;;        "-arphic-uming-medium-r-normal--14-140-100-100-m-140-big5-0"
+;;        nil 'perpend)))
