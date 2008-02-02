@@ -66,6 +66,10 @@ Useful for \")\", \"]\" and similar stuffs."
              (setq indent-tabs-mode nil)))
 
 
+;; YAML mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+
 ;; Support for rspec
 (add-to-list 'compilation-mode-font-lock-keywords
 	     '("^\\([[:digit:]]+\\) examples?, \\([[:digit:]]+\\) failures?\\(?:, \\([[:digit:]]+\\) pendings?\\)?$"
