@@ -1,0 +1,3 @@
+I split my .emacs files into many sub-files. I change them a lot. I also use several computers. I find it hard to synchronize it between them. So I decide to put it into a subversion repository. I choose here because I can access google code from every of my computer. And some stuffs are well commented so that maybe someone can have a look at it if he is willing to. And as to the GPL v2, you can use and modify the codes here freely. :)
+
+But I bet you cannot use these files directly. Because they are config files to many packages while I'm not including those packages here. They are too big.
